@@ -8,9 +8,9 @@ async function app() {
     // Convert to pixels and used expandDims() to fix weird error 
     const pixels = tf.browser.fromPixels(imgElem).expandDims(0);
     // Convert to float32 instead of int32
-    const resized = tf.cast(pixels, 'float32');
+    const imgPredict = tf.cast(pixels, 'float32');
     // Let the prediction starts!
-    const result = await model.execute(resized);
+    const result = await model.execute(imgPredict);
     // Log out result in the console.
     console.log(result);
 }
